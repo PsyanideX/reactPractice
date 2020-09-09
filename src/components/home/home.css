@@ -1,0 +1,103 @@
+.sidebar {
+  min-width: 250px;
+}
+
+.search {
+  margin: 10px auto;
+  margin-bottom: 40px;
+}
+
+.search__input {
+  background-color: #036564;
+  color: white;
+}
+
+.search__input:focus {
+  background-color: #036564;
+  color: white;
+}
+
+.search__button {
+  width: 90%;
+  background-color: #036564;
+}
+
+.search__button:hover {
+  background-color: #033649;
+}
+
+.sidebar {
+  border-top: 2px solid #036564;
+  border-right: 2px solid #036564;
+  border-bottom: 2px solid #036564;
+  background-color: #cdb380;
+  border-radius: 0 0.3em 0.3em 0;
+}
+
+.departmentList {
+  list-style-type: none;
+}
+
+.department {
+  padding: 1em;
+  border-bottom: 1px solid #036564;
+}
+
+.department a {
+  color: #033649;
+}
+
+.deals {
+  border: 2px solid #036564;
+  background-color: #cdb380;
+  border-radius: 0.3em;
+  justify-content: space-around;
+  margin: 0 1em 1em 1em;
+  padding: 1em;
+}
+
+.products {
+  border: 2px solid #036564;
+  background-color: #cdb380;
+  border-radius: 0.3em;
+  justify-content: space-around;
+  margin: 0 1em 1em 1em;
+  padding: 1em;
+}
+
+.card {
+  background-color: #036564;
+  color: white;
+  float: left;
+  height: 330px;
+  margin-bottom: 15px;
+  min-width: 240px;
+  width: 15%;
+}
+
+.card img {
+  margin: 10px auto;
+  margin-bottom: 0px;
+  border-radius: 0.3em;
+  width: 90%;
+}
+
+.price {
+  display: inline;
+  margin: 0px 5px;
+  color: red;
+  text-decoration: line-through;
+}
+
+.newprice {
+  display: inline;
+  margin: 0px 5px;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
