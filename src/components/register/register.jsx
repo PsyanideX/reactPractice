@@ -62,7 +62,8 @@ class Register extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container register">
+        <h2>Register</h2>
         <form onSubmit={this.submitRegisterFormHandler} autoComplete="off">
           <div className="form-group">
             <label htmlFor="email">Email</label>

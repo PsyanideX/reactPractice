@@ -55,13 +55,14 @@ class Register extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container login">
+        <h2>Login</h2>
         <form onSubmit={this.submitRegisterFormHandler} autoComplete="off">
           <div className="form-group">
             <label htmlFor="username">Username:</label>
             <input
               type="text"
-              placeholder=""
+              placeholder="Username"
               value={this.state.formControls.username.value}
               name="username"
               onChange={this.changeHandler}
@@ -81,12 +82,12 @@ class Register extends Component {
               required
             />
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn">
             Login
           </button>
           <p>Already have an account?</p>
           <Link to="/register">
-            <button type="button" className="btn btn-secondary">
+            <button type="button" className="btn">
               Register
             </button>
           </Link>
