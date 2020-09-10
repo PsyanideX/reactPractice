@@ -29,16 +29,16 @@ class Footer extends Component {
         <div className="">
           <h3>RRSS</h3>
           <p>
-            <i class="fab fa-instagram"> </i>Instagram
+            <i className="fab fa-instagram"> </i>Instagram
           </p>
           <p>
-            <i class="fab fa-twitter"> </i>Twitter
+            <i className="fab fa-twitter"> </i>Twitter
           </p>
           <p>
-            <i class="fab fa-youtube"> </i>Youtube
+            <i className="fab fa-youtube"> </i>Youtube
           </p>
           <p>
-            <i class="fab fa-facebook"> </i>Facebook
+            <i className="fab fa-facebook"> </i>Facebook
           </p>
         </div>
       </nav>

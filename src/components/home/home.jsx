@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { apiUrl, getRequest } from '../../shared/constants/constants';
 import './home.css';
 import Navbar from '../navbar/navbar';
@@ -40,7 +41,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
+      <div class="flex-wrapper">
         <Navbar />
         <div className="container-fluid">
           <div className="form-group row search">
@@ -66,7 +67,9 @@ class Home extends Component {
                 <ul className="departmentList">
                   {this.state.departments.map(department => (
                     <li key={department.name} className="department">
-                      <a href="#1">{department.name}</a>
+                      <Link to={`/products/${department.name}`}>
+                        <p>{department.name}</p>
+                      </Link>
                     </li>
                   ))}
                 </ul>

@@ -1,10 +1,10 @@
 .footer {
   background-color: #d4cebe;
   border-top: 2px solid #036564;
-  bottom: 0;
   justify-content: space-evenly;
   margin-top: 40px;
   padding: 40px;
+  height: 280px;
 }
 
 .footer h3,
