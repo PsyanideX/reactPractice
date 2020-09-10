@@ -17,6 +17,11 @@
   color: white;
 }
 
+.search__input::placeholder {
+  color: white;
+  opacity: 0.6;
+}
+
 .search__button {
   width: 90%;
   background-color: #036564;
@@ -27,11 +32,17 @@
 }
 
 .sidebar {
+  max-height: 800px;
+  position: static;
   border-top: 2px solid #036564;
   border-right: 2px solid #036564;
   border-bottom: 2px solid #036564;
-  background-color: #cdb380;
+  background-color: #d4cebe;
   border-radius: 0 0.3em 0.3em 0;
+}
+
+.sidebar h2 {
+  color: #033649;
 }
 
 .departmentList {
@@ -41,6 +52,7 @@
 .department {
   padding: 1em;
   border-bottom: 1px solid #036564;
+  font-weight: bold;
 }
 
 .department a {
@@ -49,7 +61,7 @@
 
 .deals {
   border: 2px solid #036564;
-  background-color: #cdb380;
+  background-color: #d4cebe;
   border-radius: 0.3em;
   justify-content: space-around;
   margin: 0 1em 1em 1em;
@@ -58,10 +70,10 @@
 
 .products {
   border: 2px solid #036564;
-  background-color: #cdb380;
+  background-color: #d4cebe;
   border-radius: 0.3em;
   justify-content: space-around;
-  margin: 0 1em 1em 1em;
+  margin: 0 1em 0 1em;
   padding: 1em;
 }
 
@@ -76,6 +88,7 @@
 }
 
 .card img {
+  border: 1px solid #033649;
   margin: 10px auto;
   margin-bottom: 0px;
   border-radius: 0.3em;
@@ -93,6 +106,7 @@
   display: inline;
   margin: 0px 5px;
   font-weight: bold;
+  color: white;
 }
 
 .description {
@@ -100,4 +114,5 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  color: white;
 }
