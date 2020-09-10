@@ -158,7 +158,7 @@
     },
     {
       "id": 11,
-      "productname": "Altavoz",
+      "productname": "Altavoz de bolsillo",
       "productdescription": "Altavoz 10W Xiaomi",
       "price": "15",
       "department": "Sonido",
@@ -166,7 +166,7 @@
     },
     {
       "id": 12,
-      "productname": "Altavoz",
+      "productname": "Altavoz Sony",
       "productdescription": "Altavoz 50W Sony",
       "price": "59",
       "department": "Sonido",
@@ -285,11 +285,11 @@
       "image": ""
     },
     {
-      "id": 28,
-      "productname": "",
-      "productdescription": "",
-      "price": "",
-      "department": "",
+      "id": 24,
+      "productname": "Nevera Balay",
+      "productdescription": "Nevera Balay estilo americano",
+      "price": "699",
+      "department": "Electrodomesticos",
       "image": ""
     }
   ],
