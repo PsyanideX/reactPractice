@@ -1,0 +1,51 @@
+.product__image {
+  height: 350px;
+  width: 350px;
+  border-top-left-radius: 1em;
+  border-bottom-left-radius: 1em;
+}
+
+.product-details {
+  background-color: #d4cebe;
+  border: 1px solid #036564;
+  border-left: none;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  height: 350px;
+  padding: 20px;
+  position: relative;
+  width: 400px;
+}
+
+.quantity-buttons {
+  background-color: #036564;
+  color: white;
+}
+
+.quantity-buttons:hover {
+  background-color: #033649;
+  color: white;
+}
+
+.product__quantity {
+  width: 40px;
+  border-radius: 0;
+}
+
+.buy-buttons {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.buy-buttons button {
+  color: white;
+  display: inline-block;
+  margin-right: 10px;
+  background-color: #036564;
+}
+
+.buy-buttons button:hover {
+  background-color: #033649;
+  color: white;
+}
