@@ -35,13 +35,9 @@ class Home extends Component {
     });
   };
 
-  searchForContent = event => {
-    console.log(this.state.search);
-  };
-
   render() {
     return (
-      <div class="flex-wrapper">
+      <div className="flex-wrapper">
         <Navbar />
         <div className="container-fluid">
           <div className="form-group row search">
@@ -55,9 +51,11 @@ class Home extends Component {
               />
             </div>
             <div className="col-1">
-              <button tyle="submit" onClick={this.searchForContent} className="btn btn-dark search__button">
-                <i className="fas fa-search"></i>
-              </button>
+              <Link to={`/products/?search=${this.state.search}`}>
+                <button tyle="submit" className="btn btn-dark search__button">
+                  <i className="fas fa-search"></i>
+                </button>
+              </Link>
             </div>
           </div>
           <div className="row">
@@ -85,7 +83,7 @@ class Home extends Component {
                       <p className="card-text description">{deal.productdescription}</p>
                       <div>
                         <p className="card-text price">{`${deal.price} €`}</p>
-                        <p className="card-text newprice">{`${deal.newprice} €`}</p>
+                        <p className="card-text dealprice">{`${deal.dealprice} €`}</p>
                       </div>
                     </div>
                   </div>
@@ -96,10 +94,12 @@ class Home extends Component {
                   <div className="card" key={product.productname}>
                     <img src="https://www.w3schools.com/howto/img_avatar2.png" alt={product.productname} height="180px" />
                     <div className="card-body">
-                      <h5 className="card-title">{product.productname}</h5>
+                      <Link to={`/product/${product.id}`}>
+                        <h5 className="card-title">{product.productname}</h5>
+                      </Link>
                       <p className="card-text description">{product.productdescription}</p>
                       <div>
-                        <p className="card-text newprice">{`${product.price} €`}</p>
+                        <p className="card-text dealprice">{`${product.price} €`}</p>
                       </div>
                     </div>
                   </div>

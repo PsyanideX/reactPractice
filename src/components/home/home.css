@@ -95,6 +95,11 @@
   width: 90%;
 }
 
+.card a {
+  text-decoration: none;
+  color: white;
+}
+
 .price {
   display: inline;
   margin: 0px 5px;
@@ -102,7 +107,7 @@
   text-decoration: line-through;
 }
 
-.newprice {
+.dealprice {
   display: inline;
   margin: 0px 5px;
   font-weight: bold;
