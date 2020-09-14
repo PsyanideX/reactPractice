@@ -65,6 +65,12 @@
       "email": "dsd@kjh.dsa",
       "password": "fdsf",
       "id": 10
+    },
+    {
+      "username": "redux",
+      "email": "redux@redux.redux",
+      "password": "redux",
+      "id": 11
     }
   ],
   "products": [

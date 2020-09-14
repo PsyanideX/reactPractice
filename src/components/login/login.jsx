@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { usernameValidation, passwordValidation } from '../../shared/validators/validators';
@@ -9,36 +9,31 @@ import { loggedIn } from '../../core/store/reducers/loginSlice';
 
 import './login.css';
 
-class Login extends Component {
-  constructor() {
-    super();
-    this.state = {
-      formControls: {
-        username: {
-          value: '',
-        },
-        password: {
-          value: '',
-        },
-      },
-    };
-  }
+const Login = () => {
+  const [formControls, setFormControls] = useState({
+    username: {
+      value: '',
+    },
+    password: {
+      value: '',
+    },
+  });
 
-  login(user) {
+  const login = user => {
     console.log(user);
-  }
-  submitLoginFormHandler = event => {
+  };
+  const submitLoginFormHandler = event => {
     event.preventDefault();
-    const isValidUsername = usernameValidation('username', this.state.formControls.username.value);
-    const isValidPasswword = passwordValidation('password', this.state.formControls.password.value);
-    let username = this.state.formControls.username.value;
-    let password = this.state.formControls.password.value;
+    const isValidUsername = usernameValidation('username', formControls.username.value);
+    const isValidPasswword = passwordValidation('password', formControls.password.value);
+    let username = formControls.username.value;
+    let password = formControls.password.value;
     if (!isValidUsername && !isValidPasswword) {
-      fetch(`${apiUrl}/users/?username=${this.state.formControls.username.value}`, { ...getRequest })
+      fetch(`${apiUrl}/users/?username=${formControls.username.value}`, { ...getRequest })
         .then(response => response.json())
         .then(response => {
           if (response[0].username === username && response[0].password === password) {
-            this.login(username);
+            login(username);
           }
         });
     } else {
@@ -47,11 +42,18 @@ class Login extends Component {
     }
   };
 
-  changeHandler = event => {
+  const changeHandler = event => {
     const name = event.target.name;
     const value = event.target.value;
 
-    this.setState({
+    setFormControls({
+      ...formControls,
+      [name]: {
+        ...formControls[name],
+        value,
+      },
+    });
+    /*this.setState({
       formControls: {
         ...this.state.formControls,
         [name]: {
@@ -59,51 +61,49 @@ class Login extends Component {
           value,
         },
       },
-    });
+    });*/
   };
 
-  render() {
-    return (
-      <div className="container login">
-        <h2>Login</h2>
-        <form onSubmit={this.submitLoginFormHandler} autoComplete="off">
-          <div className="form-group">
-            <label htmlFor="username">Username:</label>
-            <input
-              type="text"
-              placeholder="Username"
-              value={this.state.formControls.username.value}
-              name="username"
-              onChange={this.changeHandler}
-              className="form-control"
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="password">Password:</label>
-            <input
-              type="password"
-              placeholder="Password"
-              ref={this.state.formControls.password.value}
-              name="password"
-              onChange={this.changeHandler}
-              className="form-control"
-              required
-            />
-          </div>
-          <button type="submit" className="btn">
-            Login
+  return (
+    <div className="container login">
+      <h2>Login</h2>
+      <form onSubmit={submitLoginFormHandler} autoComplete="off">
+        <div className="form-group">
+          <label htmlFor="username">Username:</label>
+          <input
+            type="text"
+            placeholder="Username"
+            value={formControls.username.value}
+            name="username"
+            onChange={changeHandler}
+            className="form-control"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            placeholder="Password"
+            value={formControls.password.value}
+            name="password"
+            onChange={changeHandler}
+            className="form-control"
+            required
+          />
+        </div>
+        <button type="submit" className="btn">
+          Login
+        </button>
+        <p>Already have an account?</p>
+        <Link to="/register">
+          <button type="button" className="btn">
+            Register
           </button>
-          <p>Already have an account?</p>
-          <Link to="/register">
-            <button type="button" className="btn">
-              Register
-            </button>
-          </Link>
-        </form>
-      </div>
-    );
-  }
-}
+        </Link>
+      </form>
+    </div>
+  );
+};
 
 export default Login;
