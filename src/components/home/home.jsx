@@ -41,7 +41,19 @@ class Home extends Component {
         <Navbar />
         <div className="container-fluid">
           <div className="form-group row search">
-            <div className="col-xl-11 col-bg-11 col-md-10 col-sm-10 col-9">
+            <div className="dropdown col-1">
+              <button className="btn btn-dark search__button" id="dropdownMenuButton" data-toggle="dropdown">
+                <i className="fas fa-bars"></i>
+              </button>
+              <div className="dropdown-menu department__dropdown">
+                {this.state.departments.map(department => (
+                  <a href={`/products/${department.name}`} key={department.name} className="dropdown-item department">
+                    {department.name}
+                  </a>
+                ))}
+              </div>
+            </div>
+            <div className="col-10">
               <input
                 type="text"
                 name="search"
@@ -50,7 +62,7 @@ class Home extends Component {
                 className="form-control search__input"
               />
             </div>
-            <div className="col">
+            <div className="col-1">
               <Link to={`/products/?search=${this.state.search}`}>
                 <button tyle="submit" className="btn btn-dark search__button">
                   <i className="fas fa-search"></i>
@@ -59,21 +71,8 @@ class Home extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="sidebar col-2">
-              <div>
-                <h2>Departments</h2>
-                <ul className="departmentList">
-                  {this.state.departments.map(department => (
-                    <li key={department.name} className="department">
-                      <Link to={`/products/${department.name}`}>
-                        <p>{department.name}</p>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
             <div className="offers col">
+              <h3 className="home__dealsheader">Nuestras ofertas del día</h3>
               <div className="home__deals row">
                 {this.state.deals.map(deal => (
                   <div className="card" key={deal.productname}>
@@ -89,6 +88,7 @@ class Home extends Component {
                   </div>
                 ))}
               </div>
+              <h3 className="home__productsheader">Nuestros productos destacados</h3>
               <div className="home__products row">
                 {this.state.products.map(product => (
                   <div className="card" key={product.productname}>

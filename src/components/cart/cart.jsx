@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { apiUrl, getRequest } from '../../shared/constants/constants';
 import Navbar from '../navbar/navbar';
 import Footer from '../footer/footer';
 import './cart.css';

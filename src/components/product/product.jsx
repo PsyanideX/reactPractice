@@ -46,7 +46,7 @@ class Product extends Component {
     return (
       <div className="flex-wrapper">
         <Navbar />
-        <div className="container">
+        <div className="container product__container">
           <div className="row">
             {/*<img src="https://www.w3schools.com/howto/img_avatar2.png" alt={this.state.product.productname} className="product__image" />*/}
             <div id="productImageCarousel" className="carousel slide col">

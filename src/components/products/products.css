@@ -1,8 +1,6 @@
-.products__flex-wrapper {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  justify-content: space-between;
+.products__departmentheader {
+  margin-left: 0.5em;
+  color: #033649;
 }
 
 .products__products {

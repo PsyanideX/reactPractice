@@ -1,10 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import { usernameValidation, passwordValidation } from '../../shared/validators/validators';
 import { apiUrl, getRequest } from '../../shared/constants/constants';
+
+import { useDispatch } from 'react-redux';
+import { loggedIn } from '../../core/store/reducers/loginSlice';
+
 import './login.css';
 
-class Register extends Component {
+class Login extends Component {
   constructor() {
     super();
     this.state = {
@@ -18,7 +23,11 @@ class Register extends Component {
       },
     };
   }
-  submitRegisterFormHandler = event => {
+
+  login(user) {
+    console.log(user);
+  }
+  submitLoginFormHandler = event => {
     event.preventDefault();
     const isValidUsername = usernameValidation('username', this.state.formControls.username.value);
     const isValidPasswword = passwordValidation('password', this.state.formControls.password.value);
@@ -29,7 +38,7 @@ class Register extends Component {
         .then(response => response.json())
         .then(response => {
           if (response[0].username === username && response[0].password === password) {
-            console.log('LOGIN');
+            this.login(username);
           }
         });
     } else {
@@ -57,7 +66,7 @@ class Register extends Component {
     return (
       <div className="container login">
         <h2>Login</h2>
-        <form onSubmit={this.submitRegisterFormHandler} autoComplete="off">
+        <form onSubmit={this.submitLoginFormHandler} autoComplete="off">
           <div className="form-group">
             <label htmlFor="username">Username:</label>
             <input
@@ -97,4 +106,4 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default Login;

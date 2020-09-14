@@ -2,6 +2,13 @@
   padding: 0;
 }
 
+.product__container {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .product__image {
   height: 350px;
   width: 350px;
@@ -32,21 +39,21 @@
 }
 
 .product__quantity {
-  width: 40px;
   border-radius: 0;
+  width: 40px;
 }
 
 .buy-buttons {
-  position: absolute;
   bottom: 20px;
   left: 20px;
+  position: absolute;
 }
 
 .buy-buttons button {
+  background-color: #036564;
   color: white;
   display: inline-block;
   margin-right: 10px;
-  background-color: #036564;
 }
 
 .buy-buttons button:hover {

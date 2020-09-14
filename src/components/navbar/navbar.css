@@ -10,7 +10,8 @@
 }
 
 .navbar__title {
-  left: 50px;
+  left: 2%;
+  font-size: 2em;
   color: #033649;
 }
 

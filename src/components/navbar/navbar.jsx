@@ -14,7 +14,7 @@ class Navbar extends Component {
 
         <div className="col-xl-1 col-bg-1 col-md-2 col-sm-3 col-3">
           <Link to="/cart">
-            <button className="navbar__cart btn btn-default">
+            <button className="navbar__cart btn btn-dark">
               <i className="fas fa-shopping-cart"></i>
             </button>
           </Link>
