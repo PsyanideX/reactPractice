@@ -32,10 +32,10 @@ class Products extends Component {
 
   render() {
     return (
-      <div className="flex-wrapper">
+      <div className="products__flex-wrapper">
         <Navbar />
         <div className="container">
-          <div className="row products">
+          <div className="row products__products">
             {this.state.products.map(product => (
               <div className="card" key={product.productname}>
                 <img src="https://www.w3schools.com/howto/img_avatar2.png" alt={product.productname} height="180px" />

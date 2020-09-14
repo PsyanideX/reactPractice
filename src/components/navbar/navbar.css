@@ -17,6 +17,7 @@
 .navbar__cart {
   background-color: #036564;
   color: white;
+  float: right;
 }
 
 .navbar__cart:hover {
@@ -26,6 +27,7 @@
 
 .navbar__avatar {
   border-radius: 50%;
+  float: right;
   outline: none;
 }
 

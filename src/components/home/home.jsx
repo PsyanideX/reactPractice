@@ -41,7 +41,7 @@ class Home extends Component {
         <Navbar />
         <div className="container-fluid">
           <div className="form-group row search">
-            <div className="col-11">
+            <div className="col-xl-11 col-bg-11 col-md-10 col-sm-10 col-9">
               <input
                 type="text"
                 name="search"
@@ -50,7 +50,7 @@ class Home extends Component {
                 className="form-control search__input"
               />
             </div>
-            <div className="col-1">
+            <div className="col">
               <Link to={`/products/?search=${this.state.search}`}>
                 <button tyle="submit" className="btn btn-dark search__button">
                   <i className="fas fa-search"></i>
@@ -74,7 +74,7 @@ class Home extends Component {
               </div>
             </div>
             <div className="offers col">
-              <div className="row deals">
+              <div className="home__deals row">
                 {this.state.deals.map(deal => (
                   <div className="card" key={deal.productname}>
                     <img src="https://www.w3schools.com/howto/img_avatar2.png" alt={deal.productname} height="180px" />
@@ -89,7 +89,7 @@ class Home extends Component {
                   </div>
                 ))}
               </div>
-              <div className="row products">
+              <div className="home__products row">
                 {this.state.products.map(product => (
                   <div className="card" key={product.productname}>
                     <img src="https://www.w3schools.com/howto/img_avatar2.png" alt={product.productname} height="180px" />

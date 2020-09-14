@@ -1,6 +1,16 @@
-.flex-wrapper {
+.products__flex-wrapper {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.products__products {
+  border: 2px solid #036564;
+  background-color: #d4cebe;
+  border-radius: 0.3em;
+  justify-content: space-around;
+  margin: 0 1em 0 1em;
+  min-width: 300px;
+  padding: 1em;
 }

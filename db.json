@@ -72,7 +72,7 @@
       "id": 0,
       "productname": "Lavadora",
       "productdescription": "Lavadora Balay 7 kg",
-      "price": "380",
+      "price": 380,
       "department": "Electrodomesticos",
       "image": ""
     },
@@ -80,7 +80,7 @@
       "id": 1,
       "productname": "Batidora",
       "productdescription": "Batidora Moulinex 1300W",
-      "price": "40",
+      "price": 40,
       "department": "Electrodomesticos",
       "image": ""
     },
@@ -88,7 +88,7 @@
       "id": 2,
       "productname": "Television",
       "productdescription": "Television Samsung 55\" 4K",
-      "price": "500",
+      "price": 500,
       "department": "Imagen",
       "image": ""
     },
@@ -96,7 +96,7 @@
       "id": 3,
       "productname": "Smartphone",
       "productdescription": "Smartphone Xiaomi mi 10",
-      "price": "499",
+      "price": 499,
       "department": "Telefonia",
       "image": ""
     },
@@ -104,7 +104,7 @@
       "id": 4,
       "productname": "Radio",
       "productdescription": "Radio estilo vintage",
-      "price": "55",
+      "price": 55,
       "department": "Electrodomesticos",
       "image": ""
     },
@@ -112,7 +112,7 @@
       "id": 5,
       "productname": "Monitor",
       "productdescription": "Monitor samsung curvo 144Hz 2K 28\"",
-      "price": "250",
+      "price": 250,
       "department": "Informatica",
       "image": ""
     },
@@ -120,7 +120,7 @@
       "id": 6,
       "productname": "Reloj",
       "productdescription": "Reloj casio",
-      "price": "20",
+      "price": 20,
       "department": "Gadgets",
       "image": ""
     },
@@ -128,7 +128,7 @@
       "id": 7,
       "productname": "Raton inalambrico",
       "productdescription": "Raton inalambrico logitech",
-      "price": "45",
+      "price": 45,
       "department": "Informatica",
       "image": ""
     },
@@ -136,7 +136,7 @@
       "id": 8,
       "productname": "Teclado mecanico",
       "productdescription": "Teclado mecanido HP  gaming",
-      "price": "55",
+      "price": 55,
       "department": "Informatica",
       "image": ""
     },
@@ -144,7 +144,7 @@
       "id": 9,
       "productname": "Portatil ",
       "productdescription": "Portatil ASUS i5 16GB 1TB",
-      "price": "599",
+      "price": 599,
       "department": "Informatica",
       "image": ""
     },
@@ -152,7 +152,7 @@
       "id": 10,
       "productname": "Headset BT",
       "productdescription": "Auriculares BlueTooth Sony",
-      "price": "189",
+      "price": 189,
       "department": "Sonido",
       "image": ""
     },
@@ -160,7 +160,7 @@
       "id": 11,
       "productname": "Altavoz de bolsillo",
       "productdescription": "Altavoz 10W Xiaomi",
-      "price": "15",
+      "price": 15,
       "department": "Sonido",
       "image": ""
     },
@@ -168,7 +168,7 @@
       "id": 12,
       "productname": "Altavoz Sony",
       "productdescription": "Altavoz 50W Sony",
-      "price": "59",
+      "price": 59,
       "department": "Sonido",
       "image": ""
     },
@@ -176,7 +176,7 @@
       "id": 13,
       "productname": "Xiaomi airdots",
       "productdescription": "Auriculares BT Xiaomi airdots",
-      "price": "19",
+      "price": 19,
       "department": "Sonido",
       "image": ""
     },
@@ -184,7 +184,7 @@
       "id": 14,
       "productname": "Barra de sonido",
       "productdescription": "Barra de sonido Seinheisser",
-      "price": "180",
+      "price": 180,
       "department": "Sonido",
       "image": ""
     },
@@ -192,7 +192,7 @@
       "id": 15,
       "productname": "iPhone X Plus",
       "productdescription": "Smartphone iPhone X Plus 8Gb 512Gb",
-      "price": "999",
+      "price": 999,
       "department": "Telefonia",
       "image": ""
     },
@@ -200,7 +200,7 @@
       "id": 16,
       "productname": "Portatil Lenovo",
       "productdescription": "Lenovo ThinkPad E590 15.6\"",
-      "price": "599",
+      "price": 599,
       "department": "Informatica",
       "image": ""
     },
@@ -208,7 +208,7 @@
       "id": 17,
       "productname": "Monitor LG",
       "productdescription": "LG 22EN33 1080p",
-      "price": "99",
+      "price": 99,
       "department": "Informatica",
       "image": ""
     },
@@ -216,7 +216,7 @@
       "id": 18,
       "productname": "Bateria Externa",
       "productdescription": "BAteria externa 10000mAh 2 USB 2.1A",
-      "price": "15",
+      "price": 15,
       "department": "Gadgets",
       "image": ""
     },
@@ -224,7 +224,7 @@
       "id": 19,
       "productname": "Microondas",
       "productdescription": "Microondas OKI 800W",
-      "price": "55",
+      "price": 55,
       "department": "Electrodomesticos",
       "image": ""
     },
@@ -232,7 +232,7 @@
       "id": 20,
       "productname": "HDD Externo",
       "productdescription": "HDD Externo Toshiba 1Tb",
-      "price": "60",
+      "price": 60,
       "department": "Gadgets",
       "image": ""
     },
@@ -240,7 +240,7 @@
       "id": 21,
       "productname": "Cargador iPhone",
       "productdescription": "Cargador iPhone",
-      "price": "30",
+      "price": 30,
       "department": "Telefonia",
       "image": ""
     },
@@ -248,7 +248,7 @@
       "id": 22,
       "productname": "Samsung Galaxy 10",
       "productdescription": "Samsung Galaxy 10 8GB 512Gb",
-      "price": "899",
+      "price": 899,
       "department": "Telefonia",
       "image": ""
     },
@@ -256,7 +256,7 @@
       "id": 23,
       "productname": "iPhone 11",
       "productdescription": "iPhone 11 12Gb 1T",
-      "price": "1299",
+      "price": 1299,
       "department": "Telefonia",
       "image": ""
     },
@@ -264,7 +264,7 @@
       "id": 24,
       "productname": "Horno Balay",
       "productdescription": "Horno Pirolitico Balay 2000W",
-      "price": "399",
+      "price": 399,
       "department": "Electrodomesticos",
       "image": ""
     },
@@ -272,7 +272,7 @@
       "id": 25,
       "productname": "Television",
       "productdescription": "Television 24 1080p",
-      "price": "99",
+      "price": 99,
       "department": "Imagen",
       "image": ""
     },
@@ -280,7 +280,7 @@
       "id": 27,
       "productname": "Proyector",
       "productdescription": "Proyector Sony 1080p nativo",
-      "price": "399",
+      "price": 399,
       "department": "Imagen",
       "image": ""
     },
@@ -288,7 +288,7 @@
       "id": 24,
       "productname": "Nevera Balay",
       "productdescription": "Nevera Balay estilo americano",
-      "price": "699",
+      "price": 699,
       "department": "Electrodomesticos",
       "image": ""
     },
@@ -296,7 +296,7 @@
       "id": 26,
       "productname": "Television",
       "productdescription": "Television 43\" LG Android",
-      "price": "259",
+      "price": 259,
       "department": "Imagen",
       "image": ""
     }
@@ -380,7 +380,7 @@
       "id": 0,
       "productname": "Lavadora",
       "productdescription": "Lavadora Balay 7 kg",
-      "price": "380",
+      "price": 380,
       "department": "Electrodomesticos",
       "image": "",
       "dealprice": "350"
@@ -389,7 +389,7 @@
       "id": 1,
       "productname": "Batidora",
       "productdescription": "Batidora Moulinex 1300W",
-      "price": "40",
+      "price": 40,
       "department": "Electrodomesticos",
       "image": "",
       "dealprice": "20"
@@ -398,7 +398,7 @@
       "id": 2,
       "productname": "Television",
       "productdescription": "Television Samsung 55\" 4K",
-      "price": "500",
+      "price": 500,
       "department": "Imagen",
       "image": "",
       "dealprice": "450"
@@ -407,7 +407,7 @@
       "id": 3,
       "productname": "Smartphone",
       "productdescription": "Smartphone Xiaomi mi 10",
-      "price": "499",
+      "price": 499,
       "department": "Telefonia",
       "image": "",
       "dealprice": "350"
@@ -416,7 +416,7 @@
       "id": 4,
       "productname": "Radio",
       "productdescription": "Radio estilo vintage",
-      "price": "55",
+      "price": 55,
       "department": "Electrodomesticos",
       "image": "",
       "dealprice": "45"
@@ -425,7 +425,7 @@
       "id": 5,
       "productname": "Monitor",
       "productdescription": "Monitor samsung curvo 144Hz 2K 28\"",
-      "price": "250",
+      "price": 250,
       "department": "Informatica",
       "image": "",
       "dealprice": "210"
@@ -434,7 +434,7 @@
       "id": 6,
       "productname": "Reloj",
       "productdescription": "Reloj casio",
-      "price": "20",
+      "price": 20,
       "department": "Gadgets",
       "image": "",
       "dealprice": "10"
@@ -443,7 +443,7 @@
       "id": 7,
       "productname": "Raton inalambrico",
       "productdescription": "Raton inalambrico logitech",
-      "price": "45",
+      "price": 45,
       "department": "Informatica",
       "image": "",
       "dealprice": "20"
@@ -452,7 +452,7 @@
       "id": 8,
       "productname": "Teclado mecanico",
       "productdescription": "Teclado mecanido HP  gaming",
-      "price": "55",
+      "price": 55,
       "department": "Informatica",
       "image": "",
       "dealprice": "20"
@@ -461,7 +461,7 @@
       "id": 9,
       "productname": "Portatil ",
       "productdescription": "Portatil ASUS i5 16GB 1TB",
-      "price": "599",
+      "price": 599,
       "department": "Informatica",
       "image": "",
       "dealprice": "520"
@@ -470,7 +470,7 @@
       "id": 10,
       "productname": "Headset BT",
       "productdescription": "Auriculares BlueTooth Sony",
-      "price": "189",
+      "price": 189,
       "department": "Sonido",
       "image": "",
       "dealprice": "120"

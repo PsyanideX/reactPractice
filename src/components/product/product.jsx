@@ -19,8 +19,8 @@ class Product extends Component {
       },
       avatars: [
         'https://www.w3schools.com/howto/img_avatar2.png',
-        'https://www.w3schools.com/howto/img_avatar1.png',
-        'https://www.w3schools.com/howto/img_avatar3.png',
+        'https://www.w3schools.com/howto/img_avatar.png',
+        'https://www.w3schools.com/w3images/avatar2.png',
       ],
     };
   }
@@ -48,17 +48,32 @@ class Product extends Component {
         <Navbar />
         <div className="container">
           <div className="row">
-            <img src="https://www.w3schools.com/howto/img_avatar2.png" alt={this.state.product.productname} className="product__image" />
-            {/*<div className="carousel slide">
+            {/*<img src="https://www.w3schools.com/howto/img_avatar2.png" alt={this.state.product.productname} className="product__image" />*/}
+            <div id="productImageCarousel" className="carousel slide col">
               <div className="carousel-inner">
+                <div className="carousel-item active" key="avatar">
+                  <img
+                    src="https://www.w3schools.com/howto/img_avatar2.png"
+                    alt={this.state.product.productname}
+                    className="product__image d-block w-100"
+                  />
+                </div>
                 {this.state.avatars.map((avatar, i) => (
                   <div className="carousel-item" key={`avatar${i}`}>
-                    <img src={avatar} alt={this.state.product.productname} className="product__image" />
+                    <img src={avatar} alt={this.state.product.productname} className="product__image d-block w-100" />
                   </div>
                 ))}
+                <a className="carousel-control-prev" href="#productImageCarousel" role="button" data-slide="prev">
+                  <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span className="sr-only">Previous</span>
+                </a>
+                <a className="carousel-control-next" href="#productImageCarousel" role="button" data-slide="next">
+                  <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span className="sr-only">Next</span>
+                </a>
               </div>
-                </div>*/}
-            <div className="product-details">
+            </div>
+            <div className="product-details col">
               <h2>{this.state.product.productname}</h2>
               <p>Descripción del artículo:</p>
               <p>{this.state.product.productdescription}</p>

@@ -1,8 +1,12 @@
+.carousel {
+  padding: 0;
+}
+
 .product__image {
   height: 350px;
   width: 350px;
-  border-top-left-radius: 1em;
-  border-bottom-left-radius: 1em;
+  /*border-top-left-radius: 1em;
+  border-bottom-left-radius: 1em;*/
 }
 
 .product-details {

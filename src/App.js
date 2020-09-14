@@ -5,6 +5,7 @@ import Register from './components/register/register';
 import Home from './components/home/home';
 import Products from './components/products/products';
 import Product from './components/product/product';
+import Cart from './components/cart/cart';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/home" component={Home} />
       <Route path="/products/:department?" component={Products} />
       <Route path="/product/:productId" component={Product} />
+      <Route path="/cart" component={Cart} />
     </Switch>
   );
 }
