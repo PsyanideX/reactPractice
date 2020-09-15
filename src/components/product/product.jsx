@@ -3,8 +3,11 @@ import { apiUrl, getRequest } from '../../shared/constants/constants';
 import Navbar from '../navbar/navbar';
 import Footer from '../footer/footer';
 import './product.css';
+import { useDispatch } from 'react-redux';
+import { addItem, removeItem } from '../../core/store/reducers/cartSlice';
 
 const Product = props => {
+  const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
   const [product, setProduct] = useState({
     id: 0,
@@ -19,6 +22,17 @@ const Product = props => {
     'https://www.w3schools.com/howto/img_avatar.png',
     'https://www.w3schools.com/w3images/avatar2.png',
   ]);
+
+  const addItemToCart = () => {
+    let item = {
+      id: product.id,
+      productname: product.productname,
+      productdescription: product.productdescription,
+      price: product.price,
+      quantity: quantity,
+    };
+    dispatch(addItem(item));
+  };
 
   const addOneUnity = () => {
     setQuantity(quantity + 1);
@@ -68,7 +82,9 @@ const Product = props => {
             <p>{product.productdescription}</p>
             <h4>{product.price}€</h4>
             <div className="buy-buttons">
-              <button className="btn btn-default">Añadir a la cesta</button>
+              <button className="btn btn-default" onClick={addItemToCart}>
+                Añadir a la cesta
+              </button>
               <button className="btn btn-default">Comprar</button>
             </div>
             <p>Cantidad:</p>

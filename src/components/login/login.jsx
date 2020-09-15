@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { usernameValidation, passwordValidation } from '../../shared/validators/validators';
 import { apiUrl, getRequest } from '../../shared/constants/constants';
@@ -10,6 +11,8 @@ import { loggedIn } from '../../core/store/reducers/loginSlice';
 import './login.css';
 
 const Login = () => {
+  const history = useHistory();
+  const dispatch = useDispatch();
   const [formControls, setFormControls] = useState({
     username: {
       value: '',
@@ -19,9 +22,12 @@ const Login = () => {
     },
   });
 
-  const login = user => {
-    console.log(user);
+  const login = username => {
+    console.log(username);
+    dispatch(loggedIn(username));
+    history.push('/home');
   };
+
   const submitLoginFormHandler = event => {
     event.preventDefault();
     const isValidUsername = usernameValidation('username', formControls.username.value);

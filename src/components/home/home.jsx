@@ -4,8 +4,10 @@ import { apiUrl, getRequest } from '../../shared/constants/constants';
 import './home.css';
 import Navbar from '../navbar/navbar';
 import Footer from '../footer/footer';
+import { useHistory } from 'react-router-dom';
 
 const Home = () => {
+  const history = useHistory();
   const [departments, setDepartments] = useState([]);
   const [deals, setDeals] = useState([]);
   const [products, setProducts] = useState([]);
@@ -29,6 +31,10 @@ const Home = () => {
     setSearch(event.target.value);
   };
 
+  const departmentRedirect = direction => {
+    history.push(direction);
+  };
+
   return (
     <div className="flex-wrapper">
       <Navbar />
@@ -40,9 +46,9 @@ const Home = () => {
             </button>
             <div className="dropdown-menu department__dropdown">
               {departments.map(department => (
-                <a href={`/products/${department.name}`} key={department.name} className="dropdown-item department">
+                <button className="dropdown-item department" key={department.name} onClick={() => departmentRedirect(`/products/${department.name}`)}>
                   {department.name}
-                </a>
+                </button>
               ))}
             </div>
           </div>

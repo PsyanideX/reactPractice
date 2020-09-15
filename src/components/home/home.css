@@ -44,7 +44,7 @@
   padding: 0px;
 }
 
-.department__dropdown a:hover {
+.department__dropdown button:hover {
   background-color: #036564;
   color: white;
 }

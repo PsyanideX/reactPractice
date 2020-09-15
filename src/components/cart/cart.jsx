@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Navbar from '../navbar/navbar';
 import Footer from '../footer/footer';
 import './cart.css';
+import { removeItem, selectItems } from '../../core/store/reducers/cartSlice';
 
 const Cart = () => {
+  const items = useSelector(selectItems);
+  const dispatch = useDispatch();
   const [cart, setCart] = useState([
     {
       id: 0,
@@ -15,37 +19,7 @@ const Cart = () => {
   ]);
 
   useEffect(() => {
-    const cartMock = [
-      {
-        id: 0,
-        productname: 'Lavadora',
-        productdescription: 'Lavadora Balay 7 kg',
-        price: 380,
-        quantity: 1,
-      },
-      {
-        id: 3,
-        productname: 'Smartphone',
-        productdescription: 'Smartphone Xiaomi mi 10',
-        price: 499,
-        quantity: 1,
-      },
-      {
-        id: 18,
-        productname: 'Bateria Externa',
-        productdescription: 'BAteria externa 10000mAh 2 USB 2.1A',
-        price: 15,
-        quantity: 3,
-      },
-      {
-        id: 25,
-        productname: 'Television',
-        productdescription: 'Television 24 1080p',
-        price: 99,
-        quantity: 1,
-      },
-    ];
-    setCart(cartMock);
+    setCart(items);
   }, []);
 
   const calculateTotalProducts = () => {
