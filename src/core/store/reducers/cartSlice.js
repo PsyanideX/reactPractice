@@ -7,7 +7,12 @@ export const cartSlice = createSlice({
   },
   reducers: {
     addItem: (state, action) => {
-      state.items.push(action.payload);
+      let itemRepeated = state.items.find(item => item.id === action.payload.id);
+      if (itemRepeated) {
+        itemRepeated.quantity = itemRepeated.quantity + 1;
+      } else {
+        state.items.push(action.payload);
+      }
     },
     removeItem: (state, action) => {
       state.items = state.items.filter(item => {
