@@ -21,7 +21,6 @@ const Login = () => {
       value: '',
     },
   });
-
   const login = username => {
     console.log(username);
     dispatch(loggedIn(username));
@@ -59,15 +58,6 @@ const Login = () => {
         value,
       },
     });
-    /*this.setState({
-      formControls: {
-        ...this.state.formControls,
-        [name]: {
-          ...this.state.formControls[name],
-          value,
-        },
-      },
-    });*/
   };
 
   return (

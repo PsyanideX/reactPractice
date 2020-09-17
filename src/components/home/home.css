@@ -1,5 +1,4 @@
 .flex-wrapper {
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
@@ -26,6 +25,10 @@
 .search__input::placeholder {
   color: white;
   opacity: 0.6;
+}
+
+.search__buttoncontainer {
+  padding: 0px;
 }
 
 .search__button {
@@ -95,14 +98,17 @@
 .card {
   background-color: #036564;
   color: white;
+  flex-grow: 1.1;
   float: left;
   height: 330px;
   margin: 0px 10px 15px 10px;
-  min-width: 240px;
+  min-width: 220px;
+  max-width: 300px;
   width: 15%;
 }
 
 .card img {
+  background-color: white;
   border: 1px solid #033649;
   margin: 10px auto;
   margin-bottom: 0px;
@@ -135,4 +141,16 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+@media only screen and (max-width: 940px) {
+  .flex-wrapper {
+    padding-bottom: 380px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .flex-wrapper {
+    padding-bottom: 250px;
+  }
 }

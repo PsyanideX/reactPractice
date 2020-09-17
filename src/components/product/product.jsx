@@ -4,20 +4,13 @@ import Navbar from '../navbar/navbar';
 import Footer from '../footer/footer';
 import './product.css';
 import { useDispatch } from 'react-redux';
-import { addItem, removeItem } from '../../core/store/reducers/cartSlice';
+import { addItem } from '../../core/store/reducers/cartSlice';
 
 const Product = props => {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
-  const [product, setProduct] = useState({
-    id: 0,
-    productname: '',
-    productdescription: '',
-    price: '',
-    department: '',
-    image: '',
-  });
-  const [avatars, setAvatars] = useState([
+  const [product, setProduct] = useState({});
+  const [avatars] = useState([
     'https://www.w3schools.com/howto/img_avatar2.png',
     'https://www.w3schools.com/howto/img_avatar.png',
     'https://www.w3schools.com/w3images/avatar2.png',
@@ -28,7 +21,7 @@ const Product = props => {
       id: product.id,
       productname: product.productname,
       productdescription: product.productdescription,
-      price: product.price,
+      price: product.dealprice ? product.dealprice : product.price,
       quantity: quantity,
     };
     dispatch(addItem(item));
@@ -43,11 +36,26 @@ const Product = props => {
     setQuantity(newQuantity);
   };
 
+  const priceWithoutIVA = price => {
+    return (price / 1.21).toFixed(2);
+  };
+
   useEffect(() => {
     let productId = props.match.params.productId;
-    const url = `${apiUrl}/products/${productId}`;
-    fetch(url, getRequest)
-      .then(response => response.json())
+    const urlProduct = `${apiUrl}/products/${productId}`;
+    const urlDeal = `${apiUrl}/deals/${productId}`;
+    fetch(urlDeal, getRequest)
+      .then(response => {
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          fetch(urlProduct, getRequest)
+            .then(response => {
+              return response.json();
+            })
+            .then(response => setProduct(response));
+        }
+      })
       .then(response => setProduct(response));
   }, []);
 
@@ -55,51 +63,68 @@ const Product = props => {
     <div className="flex-wrapper">
       <Navbar />
       <div className="container product__container">
-        <div className="row">
-          <div id="productImageCarousel" className="carousel slide col">
-            <div className="carousel-inner">
-              <div className="carousel-item active" key="avatar">
-                <img src="https://www.w3schools.com/howto/img_avatar2.png" alt={product.productname} className="product__image d-block w-100" />
-              </div>
-              {avatars.map((avatar, i) => (
-                <div className="carousel-item" key={`avatar${i}`}>
-                  <img src={avatar} alt={product.productname} className="product__image d-block w-100" />
+        {product ? (
+          product.id >= 0 ? (
+            <div className="row">
+              <div id="productImageCarousel" className="carousel slide col">
+                <div className="carousel-inner">
+                  <div className="carousel-item active" key="avatar">
+                    <img src={product.image} alt={product.productname} className="product__image d-block w-100" />
+                  </div>
+                  {avatars.map((avatar, i) => (
+                    <div className="carousel-item" key={`avatar${i}`}>
+                      <img src={avatar} alt={product.productname} className="product__image d-block w-100" />
+                    </div>
+                  ))}
+                  <a className="carousel-control-prev" href="#productImageCarousel" role="button" data-slide="prev">
+                    <span className="carousel-control-prev-icon slide-icon" aria-hidden="true"></span>
+                    <span className="sr-only">Previous</span>
+                  </a>
+                  <a className="carousel-control-next" href="#productImageCarousel" role="button" data-slide="next">
+                    <span className="carousel-control-next-icon slide-icon" aria-hidden="true"></span>
+                    <span className="sr-only">Next</span>
+                  </a>
                 </div>
-              ))}
-              <a className="carousel-control-prev" href="#productImageCarousel" role="button" data-slide="prev">
-                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span className="sr-only">Previous</span>
-              </a>
-              <a className="carousel-control-next" href="#productImageCarousel" role="button" data-slide="next">
-                <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                <span className="sr-only">Next</span>
-              </a>
+              </div>
+              <div className="product-details col">
+                <h2>{product.productname}</h2>
+                <p>{product.productdescription}</p>
+                {product.dealprice ? (
+                  <div>
+                    <h4 className="inline product__deal-price">{product.dealprice}€</h4>{' '}
+                    <p className="inline">{`(${priceWithoutIVA(product.dealprice)}€ sin IVA)`}</p>
+                  </div>
+                ) : (
+                  <div>
+                    <h4 className="inline">{product.price}€</h4> <p className="inline">{`(${priceWithoutIVA(product.price)}€ sin IVA)`}</p>
+                  </div>
+                )}
+                <div className="buy-buttons">
+                  <button className="btn btn-default" onClick={addItemToCart}>
+                    ¡A la cesta!
+                  </button>
+                  <button className="btn btn-default">Comprar</button>
+                </div>
+                <p>Cantidad:</p>
+                <div className="btn-group">
+                  <button className="btn quantity-buttons" onClick={substractOneUnity}>
+                    <i className="far fa-minus-square"></i>
+                  </button>
+                  <input type="text" value={quantity} className="form-control product__quantity" readOnly />
+                  <button className="btn quantity-buttons" onClick={addOneUnity}>
+                    <i className="far fa-plus-square"></i>
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="product-details col">
-            <h2>{product.productname}</h2>
-            <p>Descripción del artículo:</p>
-            <p>{product.productdescription}</p>
-            <h4>{product.price}€</h4>
-            <div className="buy-buttons">
-              <button className="btn btn-default" onClick={addItemToCart}>
-                Añadir a la cesta
-              </button>
-              <button className="btn btn-default">Comprar</button>
+          ) : (
+            <div className="spinner-border product__spinner" role="status">
+              <span className="sr-only">Loading...</span>
             </div>
-            <p>Cantidad:</p>
-            <div className="btn-group">
-              <button className="btn quantity-buttons" onClick={substractOneUnity}>
-                <i className="far fa-minus-square"></i>
-              </button>
-              <input type="text" value={quantity} className="form-control product__quantity" />
-              <button className="btn quantity-buttons" onClick={addOneUnity}>
-                <i className="far fa-plus-square"></i>
-              </button>
-            </div>
-          </div>
-        </div>
+          )
+        ) : null}
       </div>
+
       <Footer />
     </div>
   );

@@ -32,3 +32,14 @@ li {
 .footer i {
   margin: 0px 10px 0px 0px;
 }
+
+.display__list {
+  padding: 2px;
+  color: #036564;
+}
+
+@media only screen and (max-width: 479px) {
+  .footer_ul {
+    display: none;
+  }
+}

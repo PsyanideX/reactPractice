@@ -18,7 +18,7 @@ const Home = () => {
       .then(response => response.json())
       .then(response => setDeals(response));
 
-    fetch(`${apiUrl}/products?_limit=6`, getRequest)
+    fetch(`${apiUrl}/products?_start=11&_limit=6`, getRequest)
       .then(response => response.json())
       .then(response => setProducts(response));
 
@@ -40,7 +40,7 @@ const Home = () => {
       <Navbar />
       <div className="container-fluid">
         <div className="form-group row search">
-          <div className="dropdown col-1">
+          <div className="dropdown col-1 search__buttoncontainer">
             <button className="btn btn-dark search__button" id="dropdownMenuButton" data-toggle="dropdown">
               <i className="fas fa-bars"></i>
             </button>
@@ -61,7 +61,7 @@ const Home = () => {
               className="form-control search__input"
             />
           </div>
-          <div className="col-1">
+          <div className="col-1 search__buttoncontainer">
             <Link to={`/products/?search=${search}`}>
               <button tyle="submit" className="btn btn-dark search__button">
                 <i className="fas fa-search"></i>
@@ -73,36 +73,50 @@ const Home = () => {
           <div className="offers col">
             <h3 className="home__dealsheader">Nuestras ofertas del día</h3>
             <div className="home__deals row">
-              {deals.map(deal => (
-                <div className="card" key={deal.productname}>
-                  <img src="https://www.w3schools.com/howto/img_avatar2.png" alt={deal.productname} height="180px" />
-                  <div className="card-body">
-                    <h5 className="card-title">{deal.productname}</h5>
-                    <p className="card-text description">{deal.productdescription}</p>
-                    <div>
-                      <p className="card-text price">{`${deal.price} €`}</p>
-                      <p className="card-text dealprice">{`${deal.dealprice} €`}</p>
+              {deals.length > 0 ? (
+                deals.map(deal => (
+                  <div className="card" key={deal.productname}>
+                    <img src={deal.image} alt={deal.productname} height="180px" />
+                    <div className="card-body">
+                      <Link to={`/product/${deal.id}`}>
+                        <h5 className="card-title">{deal.productname}</h5>
+                      </Link>
+                      <p className="card-text description">{deal.productdescription}</p>
+                      <div>
+                        <p className="card-text price">{`${deal.price} €`}</p>
+                        <p className="card-text dealprice">{`${deal.dealprice} €`}</p>
+                      </div>
                     </div>
                   </div>
+                ))
+              ) : (
+                <div className="spinner-border" role="status">
+                  <span className="sr-only">Loading...</span>
                 </div>
-              ))}
+              )}
             </div>
             <h3 className="home__productsheader">Nuestros productos destacados</h3>
             <div className="home__products row">
-              {products.map(product => (
-                <div className="card" key={product.productname}>
-                  <img src="https://www.w3schools.com/howto/img_avatar2.png" alt={product.productname} height="180px" />
-                  <div className="card-body">
-                    <Link to={`/product/${product.id}`}>
-                      <h5 className="card-title">{product.productname}</h5>
-                    </Link>
-                    <p className="card-text description">{product.productdescription}</p>
-                    <div>
-                      <p className="card-text dealprice">{`${product.price} €`}</p>
+              {products.length > 0 ? (
+                products.map(product => (
+                  <div className="card" key={product.productname}>
+                    <img src={product.image} alt={product.productname} height="180px" />
+                    <div className="card-body">
+                      <Link to={`/product/${product.id}`}>
+                        <h5 className="card-title">{product.productname}</h5>
+                      </Link>
+                      <p className="card-text description">{product.productdescription}</p>
+                      <div>
+                        <p className="card-text dealprice">{`${product.price} €`}</p>
+                      </div>
                     </div>
                   </div>
+                ))
+              ) : (
+                <div className="spinner-border" role="status">
+                  <span className="sr-only">Loading...</span>
                 </div>
-              ))}
+              )}
             </div>
           </div>
         </div>

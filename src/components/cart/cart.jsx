@@ -20,7 +20,7 @@ const Cart = () => {
 
   useEffect(() => {
     setCart(items);
-  }, []);
+  }, [items]);
 
   const calculateTotalProducts = () => {
     let calculateTotalProducts = 0;
@@ -30,42 +30,60 @@ const Cart = () => {
 
   const calculateTotalPrice = () => {
     let calculateTotalPrice = 0;
-    cart.forEach(element => (calculateTotalPrice += element.price));
+    cart.forEach(element => (calculateTotalPrice += element.price * element.quantity));
     return calculateTotalPrice;
+  };
+
+  const removeItemfromCart = id => {
+    dispatch(removeItem(id));
   };
 
   return (
     <div className="flex-wrapper">
       <Navbar />
       <div className="container">
-        <h2>Carrito de la compra</h2>
-        <table className="table table-sm">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Producto</th>
-              <th scope="col">Descripción</th>
-              <th scope="col">Cantidad</th>
-              <th scope="col">Precio</th>
-            </tr>
-          </thead>
-          <tbody>
-            {cart.map((product, i) => (
-              <tr key={product.id}>
-                <th scope="row">{i}</th>
-                <td>{product.productname}</td>
-                <td>{product.productdescription}</td>
-                <td>{product.quantity}</td>
-                <td>{`${product.price} €`}</td>
-              </tr>
-            ))}
-            <tr>
-              <th colSpan="3">Total:</th>
-              <td>{calculateTotalProducts()}</td>
-              <td>{`${calculateTotalPrice()} €`}</td>
-            </tr>
-          </tbody>
-        </table>
+        {cart.length > 0 ? (
+          <div class="cart__tablecontainer">
+            <h2>Carrito de la compra</h2>
+            <table className="table table-sm table-responsive">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Producto</th>
+                  <th scope="col">Descripción</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                {cart.map((product, i) => (
+                  <tr key={product.id}>
+                    <th scope="row">{i}</th>
+                    <td>{product.productname}</td>
+                    <td>{product.productdescription}</td>
+                    <td>{product.quantity}</td>
+                    <td>{`${product.price * product.quantity} €`}</td>
+                    <td>
+                      <button className="btn" onClick={() => removeItemfromCart(product)}>
+                        <i className="fas fa-trash-alt"></i>
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th colSpan="3">Total:</th>
+                  <td>{calculateTotalProducts()}</td>
+                  <td>{`${calculateTotalPrice()} €`}</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        ) : (
+          <h3>¡El carrito está vacio!</h3>
+        )}
       </div>
       <Footer />
     </div>

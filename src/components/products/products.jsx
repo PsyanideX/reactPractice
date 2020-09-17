@@ -31,12 +31,12 @@ const Products = props => {
     <div className="flex-wrapper">
       <Navbar />
       <div className="container">
-        <h1 class="products__departmentheader">{department}</h1>
+        <h1 className="products__departmentheader">{department}</h1>
         <div className="row products__products">
           {products.length > 0 ? (
-            products.map(product => (
-              <div className="card" key={product.productname}>
-                <img src="https://www.w3schools.com/howto/img_avatar2.png" alt={product.productname} height="180px" />
+            products.map((product, i) => (
+              <div className="card" key={`${product.productname}${i}`}>
+                <img src={product.image} alt={product.productname} height="180px" />
                 <div className="card-body">
                   <Link to={`/product/${product.id}`}>
                     <h5 className="card-title">{product.productname}</h5>

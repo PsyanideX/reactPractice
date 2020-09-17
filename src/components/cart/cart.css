@@ -1,0 +1,19 @@
+.cart__tablecontainer {
+  background-color: #d4cebe;
+  border: 2px solid #033649;
+  border-radius: 1em;
+  padding: 10px;
+}
+
+.cart__tablecontainer table > tbody > tr > td,
+.cart__tablecontainer table > tbody > tr > th,
+.cart__tablecontainer table > tfoot > tr > td,
+.cart__tablecontainer table > tfoot > tr > th,
+.cart__tablecontainer table > thead > tr > td,
+.cart__tablecontainer table > thead > tr > th {
+  border: none;
+}
+
+.cart__tablecontainer table > tfoot {
+  border-top: 2px solid #033649;
+}
