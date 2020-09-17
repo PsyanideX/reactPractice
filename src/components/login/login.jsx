@@ -8,6 +8,8 @@ import { apiUrl, getRequest } from '../../shared/constants/constants';
 import { useDispatch } from 'react-redux';
 import { loggedIn } from '../../core/store/reducers/loginSlice';
 
+import Navbar from '../navbar/navbar';
+import Footer from '../footer/footer';
 import './login.css';
 
 const Login = () => {
@@ -22,7 +24,6 @@ const Login = () => {
     },
   });
   const login = username => {
-    console.log(username);
     dispatch(loggedIn(username));
     history.push('/home');
   };
@@ -42,8 +43,6 @@ const Login = () => {
           }
         });
     } else {
-      console.log(isValidUsername);
-      console.log(isValidPasswword);
     }
   };
 
@@ -61,43 +60,47 @@ const Login = () => {
   };
 
   return (
-    <div className="container login">
-      <h2>Login</h2>
-      <form onSubmit={submitLoginFormHandler} autoComplete="off">
-        <div className="form-group">
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            placeholder="Username"
-            value={formControls.username.value}
-            name="username"
-            onChange={changeHandler}
-            className="form-control"
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            placeholder="Password"
-            value={formControls.password.value}
-            name="password"
-            onChange={changeHandler}
-            className="form-control"
-            required
-          />
-        </div>
-        <button type="submit" className="btn">
-          Login
-        </button>
-        <p>Already have an account?</p>
-        <Link to="/register">
-          <button type="button" className="btn">
-            Register
+    <div className="flex-wrapper">
+      <Navbar onlyLogo={true} />
+      <div className="container login">
+        <h2>Login</h2>
+        <form onSubmit={submitLoginFormHandler} autoComplete="off">
+          <div className="form-group">
+            <label htmlFor="username">Username:</label>
+            <input
+              type="text"
+              placeholder="Username"
+              value={formControls.username.value}
+              name="username"
+              onChange={changeHandler}
+              className="form-control"
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password:</label>
+            <input
+              type="password"
+              placeholder="Password"
+              value={formControls.password.value}
+              name="password"
+              onChange={changeHandler}
+              className="form-control"
+              required
+            />
+          </div>
+          <button type="submit" className="btn">
+            Login
           </button>
-        </Link>
-      </form>
+          <p>Already have an account?</p>
+          <Link to="/register">
+            <button type="button" className="btn">
+              Register
+            </button>
+          </Link>
+        </form>
+      </div>
+      <Footer />
     </div>
   );
 };

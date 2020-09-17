@@ -1,6 +1,5 @@
 .footer {
-  background-color: #d4cebe;
-  border-top: 2px solid #036564;
+  background-color: #eaeaea;
   bottom: 0;
   justify-content: space-evenly;
   left: 0;
@@ -8,6 +7,11 @@
   padding-top: 10px;
   position: absolute;
   width: 100%;
+}
+
+.footer__dropdown {
+  background-color: #eaeaea;
+  border-radius: 0px;
 }
 
 .footer__container {
@@ -34,12 +38,21 @@ li {
 }
 
 .display__list {
+  display: none;
   padding: 2px;
   color: #036564;
+}
+
+.display__list:hover {
+  color: #033649;
 }
 
 @media only screen and (max-width: 479px) {
   .footer_ul {
     display: none;
+  }
+
+  .display__list {
+    display: inline;
   }
 }

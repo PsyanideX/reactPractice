@@ -6,9 +6,20 @@
   position: relative;
 }
 
+.home__banner {
+  display: block;
+  margin: 0 auto;
+  width: 45%;
+  height: auto;
+}
+
 .search {
   margin: 10px auto;
   margin-bottom: 40px;
+}
+
+.search__inputcontainer {
+  margin: 0 auto;
 }
 
 .search__input {
@@ -42,7 +53,7 @@
 }
 
 .department__dropdown {
-  background-color: #d4cebe;
+  background-color: #eaeaea;
   border: 1px solid #033649;
   padding: 0px;
 }
@@ -68,13 +79,12 @@
 }
 
 .home__dealsheader {
+  color: #033649;
   margin-left: 0.5em;
 }
 
 .home__deals {
-  border: 2px solid #036564;
-  background-color: #d4cebe;
-  border-radius: 0.3em;
+  background-color: #eaeaea;
   justify-content: space-around;
   margin: 0 1em 1em 1em;
   min-width: 300px;
@@ -82,13 +92,12 @@
 }
 
 .home__productsheader {
+  color: #033649;
   margin-left: 0.5em;
 }
 
 .home__products {
-  background-color: #d4cebe;
-  border: 2px solid #036564;
-  border-radius: 0.3em;
+  background-color: #eaeaea;
   justify-content: space-around;
   margin: 0 1em 0 1em;
   min-width: 300px;
@@ -107,13 +116,21 @@
   width: 15%;
 }
 
-.card img {
+.card__imagecontainer {
   background-color: white;
   border: 1px solid #033649;
+  border-radius: 0.3em;
   margin: 10px auto;
   margin-bottom: 0px;
-  border-radius: 0.3em;
+  position: relative;
   width: 90%;
+}
+
+.card img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 3px;
 }
 
 .card a {
@@ -143,13 +160,27 @@
   white-space: nowrap;
 }
 
+@media only screen and (max-width: 1400px) {
+  .home__banner {
+    width: 60%;
+  }
+}
+
 @media only screen and (max-width: 940px) {
+  .home__banner {
+    width: 85%;
+  }
+
   .flex-wrapper {
     padding-bottom: 380px;
   }
 }
 
 @media only screen and (max-width: 480px) {
+  .home__banner {
+    width: 100%;
+  }
+
   .flex-wrapper {
     padding-bottom: 250px;
   }

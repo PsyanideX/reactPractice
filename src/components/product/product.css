@@ -17,7 +17,7 @@
 
 .product__image {
   background-color: white;
-  height: 350px;
+  height: 400px;
   width: 350px;
   /*border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;*/
@@ -28,12 +28,10 @@
 }
 
 .product-details {
-  background-color: #d4cebe;
-  border: 1px solid #036564;
+  background-color: #eaeaea;
+  border: 2px solid #036564;
   border-left: none;
-  border-top-right-radius: 1em;
-  border-bottom-right-radius: 1em;
-  height: 350px;
+  height: 400px;
   padding: 20px;
   position: relative;
   width: 400px;

@@ -1,9 +1,8 @@
 .login {
-  border: 2px solid #036564;
   border-radius: 0.3em;
-  margin-top: 200px;
+  margin-top: 120px;
   padding: 1.5em;
-  background-color: #d4cebe;
+  background-color: #eaeaea;
 }
 
 .login h2 {
@@ -19,6 +18,11 @@
 .login input {
   background-color: #036564;
   color: white;
+}
+
+.login input::placeholder {
+  color: white;
+  opacity: 0.7;
 }
 
 .login input:focus {
@@ -39,4 +43,10 @@
 .login button:hover {
   background-color: #033649;
   color: white;
+}
+
+@media only screen and (min-height: 1000px) {
+  .login {
+    margin-top: 200px;
+  }
 }

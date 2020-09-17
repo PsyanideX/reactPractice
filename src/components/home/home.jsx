@@ -38,6 +38,7 @@ const Home = () => {
   return (
     <div className="flex-wrapper">
       <Navbar />
+      <img src="https://tpc.googlesyndication.com/simgad/18165207825729868291" className="home__banner" alt="banner" />
       <div className="container-fluid">
         <div className="form-group row search">
           <div className="dropdown col-1 search__buttoncontainer">
@@ -52,7 +53,7 @@ const Home = () => {
               ))}
             </div>
           </div>
-          <div className="col-10">
+          <div className="search__inputcontainer col-xl-10 col-bg-10 col-md-10 col-sm-9 col-9">
             <input
               type="text"
               name="search"
@@ -76,7 +77,9 @@ const Home = () => {
               {deals.length > 0 ? (
                 deals.map(deal => (
                   <div className="card" key={deal.productname}>
-                    <img src={deal.image} alt={deal.productname} height="180px" />
+                    <div className="card__imagecontainer">
+                      <img src={deal.image} alt={deal.productname} height="180px" />
+                    </div>
                     <div className="card-body">
                       <Link to={`/product/${deal.id}`}>
                         <h5 className="card-title">{deal.productname}</h5>
@@ -100,7 +103,9 @@ const Home = () => {
               {products.length > 0 ? (
                 products.map(product => (
                   <div className="card" key={product.productname}>
-                    <img src={product.image} alt={product.productname} height="180px" />
+                    <div className="card__imagecontainer">
+                      <img src={product.image} alt={product.productname} height="180px" />
+                    </div>
                     <div className="card-body">
                       <Link to={`/product/${product.id}`}>
                         <h5 className="card-title">{product.productname}</h5>

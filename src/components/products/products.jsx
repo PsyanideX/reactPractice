@@ -36,7 +36,9 @@ const Products = props => {
           {products.length > 0 ? (
             products.map((product, i) => (
               <div className="card" key={`${product.productname}${i}`}>
-                <img src={product.image} alt={product.productname} height="180px" />
+                <div className="card__imagecontainer">
+                  <img src={product.image} alt={product.productname} height="180px" />
+                </div>
                 <div className="card-body">
                   <Link to={`/product/${product.id}`}>
                     <h5 className="card-title">{product.productname}</h5>
