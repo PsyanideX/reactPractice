@@ -1,0 +1,15 @@
+.not-logged {
+  background-color: #eaeaea;
+  padding: 1em;
+  text-align: center;
+}
+
+.gotologin__button {
+  background-color: #036564;
+  color: white;
+}
+
+.gotologin__button:hover {
+  background-color: #033649;
+  color: white;
+}
