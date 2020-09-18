@@ -2,10 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './navbar.css';
 
-import { useDispatch } from 'react-redux';
+import { selectLogin } from '../../core/store/reducers/loginSlice';
+import { useSelector, useDispatch } from 'react-redux';
 import { loggedOut } from '../../core/store/reducers/loginSlice';
 
 const Navbar = ({ onlyLogo = false }) => {
+  const userLogged = useSelector(selectLogin);
   const dispatch = useDispatch();
 
   const logOut = () => {
@@ -42,15 +44,23 @@ const Navbar = ({ onlyLogo = false }) => {
               <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="avatar" />
             </button>
             <div className="dropdown-menu navbar__dropdown" aria-labelledby="dropdownMenuLink">
-              <Link to="/home" className="dropdown-item">
-                Favoritos
-              </Link>
-              <a className="dropdown-item" href="#">
-                Pedidos
-              </a>
-              <button className="dropdown-item button__logout" onClick={logOut} href="#">
-                Cerrar sesión
-              </button>
+              {userLogged ? (
+                <React.Fragment>
+                  <Link to="/home" className="dropdown-item">
+                    Favoritos
+                  </Link>
+                  <Link to={`/orders/${userLogged}`} className="dropdown-item">
+                    Pedidos
+                  </Link>
+                  <button className="dropdown-item button__logout" onClick={logOut} href="#">
+                    Cerrar sesión
+                  </button>
+                </React.Fragment>
+              ) : (
+                <Link to="/login" className="dropdown-item">
+                  Inicia sesión
+                </Link>
+              )}
             </div>
           </div>
         </React.Fragment>
