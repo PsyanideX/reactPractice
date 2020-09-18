@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import Navbar from '../navbar/navbar';
 import Footer from '../footer/footer';
 import './cart.css';
+import { apiUrl, postRequest } from '../../shared/constants/constants';
 import { removeItem, selectItems } from '../../core/store/reducers/cartSlice';
 import { selectLogin } from '../../core/store/reducers/loginSlice';
 import UserNotLogged from '../../shared/components/userNotLogged/userNotLogged';
 
 const Cart = () => {
+  const history = useHistory();
   const items = useSelector(selectItems);
   const userLogged = useSelector(selectLogin);
   const dispatch = useDispatch();
@@ -41,13 +44,40 @@ const Cart = () => {
     dispatch(removeItem(id));
   };
 
+  const buyProducts = () => {
+    let productIds = cart.map(item => item.id);
+    let body = JSON.stringify({
+      user: userLogged,
+      productIds: productIds,
+      totalPrice: calculateTotalPrice(),
+      date: getCurrentDate(),
+    });
+    fetch(`${apiUrl}/orders`, { ...postRequest, body: body }).then(response => {
+      if (response.status === 201) {
+        history.push('/home');
+        alert('Compra realizada');
+      }
+      return response.json();
+    });
+  };
+
+  const getCurrentDate = () => {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today = dd + '/' + mm + '/' + yyyy;
+    return today;
+  };
+
   return (
     <div className="flex-wrapper">
       <Navbar />
       {userLogged ? (
         <div className="container">
           {cart.length > 0 ? (
-            <div class="cart__tablecontainer">
+            <div className="cart__tablecontainer">
               <h2>Carrito de la compra</h2>
               <table className="table table-sm table-responsive">
                 <thead>
@@ -84,6 +114,9 @@ const Cart = () => {
                   </tr>
                 </tfoot>
               </table>
+              <button className="btn buy__button" onClick={buyProducts}>
+                Realizar pedido
+              </button>
             </div>
           ) : (
             <h3>¡El carrito está vacio!</h3>

@@ -1,8 +1,10 @@
 .cart__tablecontainer {
-  background-color: #d4cebe;
-  border: 2px solid #033649;
-  border-radius: 1em;
+  background-color: #eaeaea;
   padding: 10px;
+}
+
+.cart__tablecontainer table {
+  width: 80%;
 }
 
 .cart__tablecontainer table > tbody > tr > td,
@@ -16,4 +18,14 @@
 
 .cart__tablecontainer table > tfoot {
   border-top: 2px solid #033649;
+}
+
+.buy__button {
+  background-color: #036564;
+  color: white;
+}
+
+.buy__button:hover {
+  background-color: #033649;
+  color: white;
 }
