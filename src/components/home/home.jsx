@@ -35,6 +35,7 @@ const Home = () => {
     history.push(direction);
   };
 
+  console.log('RENDER HOME');
   return (
     <div className="flex-wrapper">
       <Navbar />
@@ -131,4 +132,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default React.memo(Home);

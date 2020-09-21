@@ -59,6 +59,7 @@ const Product = props => {
       .then(response => setProduct(response));
   }, []);
 
+  console.log('RENDER PRODUCT DETAIL');
   return (
     <div className="flex-wrapper">
       <Navbar />

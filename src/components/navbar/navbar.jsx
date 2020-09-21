@@ -3,17 +3,20 @@ import { Link } from 'react-router-dom';
 import './navbar.css';
 
 import { selectLogin } from '../../core/store/reducers/loginSlice';
+import { selectItems } from '../../core/store/reducers/cartSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { loggedOut } from '../../core/store/reducers/loginSlice';
 
 const Navbar = ({ onlyLogo = false }) => {
   const userLogged = useSelector(selectLogin);
+  const items = useSelector(selectItems);
   const dispatch = useDispatch();
 
   const logOut = () => {
     dispatch(loggedOut());
   };
 
+  console.log('RENDER NAVBAR');
   return (
     <nav className="navbar row">
       <div className="col-xl-10 col-bg-9 col-md-8 col-sm-7 col-6">
@@ -28,6 +31,9 @@ const Navbar = ({ onlyLogo = false }) => {
             <Link to="/cart">
               <button className="navbar__cart btn btn-dark">
                 <i className="fas fa-shopping-cart"></i>
+                <div className="cart__counter">
+                  <p>{items.length ? items.length : null}</p>
+                </div>
               </button>
             </Link>
           </div>
@@ -69,4 +75,4 @@ const Navbar = ({ onlyLogo = false }) => {
   );
 };
 
-export default Navbar;
+export default React.memo(Navbar);

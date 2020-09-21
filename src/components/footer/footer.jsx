@@ -2,6 +2,7 @@ import React from 'react';
 import './footer.css';
 
 const Footer = () => {
+  console.log('RENDER FOOTER');
   return (
     <nav className="footer">
       <div className="footer__container row">
@@ -101,4 +102,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default React.memo(Footer);

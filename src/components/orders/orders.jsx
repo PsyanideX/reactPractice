@@ -27,6 +27,7 @@ const Orders = () => {
       .then(response => setOrders(response));
   }, []);
 
+  console.log('RENDER ORDERS');
   return (
     <div className="flex-wrapper">
       <Navbar />

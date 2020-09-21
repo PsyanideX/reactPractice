@@ -27,6 +27,7 @@ const Products = props => {
     }
   }, []);
 
+  console.log('RENDER PRODUCT LIST');
   return (
     <div className="flex-wrapper">
       <Navbar />
