@@ -3,36 +3,47 @@ import { Link } from 'react-router-dom';
 import { apiUrl, getRequest } from '../../shared/constants/constants';
 import Navbar from '../navbar/navbar';
 import Footer from '../footer/footer';
+import Searchbar from '../searchbar/searchbar';
 import './products.css';
 
 const Products = props => {
   const [department, setDepartment] = useState('');
   const [products, setProducts] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
-    let searchQuery = new URLSearchParams(window.location.search).get('search');
-    if (searchQuery) {
+    let department = props.match.params.department;
+    setDepartment(department);
+    if (!department) {
+      setSearchQuery(new URLSearchParams(window.location.search).get('search'));
       let url = `${apiUrl}/products/?productdescription_like=${searchQuery}`;
       fetch(url, getRequest)
         .then(response => response.json())
         .then(response => setProducts(response));
     } else {
-      let department = props.match.params.department;
-      setDepartment(department);
       department = department ? department.charAt(0).toUpperCase() + department.slice(1).toLowerCase() : null;
       let url = department ? `${apiUrl}/products/?department=${department}` : `${apiUrl}/products`;
       fetch(url, getRequest)
         .then(response => response.json())
         .then(response => setProducts(response));
     }
-  }, [props.match.params.department]);
+  }, [props.match.params.department, searchQuery]);
+
+  const handleSearch = search => {
+    setSearchQuery(search);
+  };
 
   console.log('RENDER PRODUCT LIST');
   return (
     <div className="flex-wrapper">
       <Navbar />
       <div className="container">
-        <h1 className="products__departmentheader">{department}</h1>
+        <Searchbar onSearch={handleSearch} />
+        {department ? (
+          <h1 className="products__departmentheader">{department}</h1>
+        ) : (
+          <h1 className="products__departmentheader">Búsqueda: "{searchQuery}"</h1>
+        )}
         <div className="row products__products">
           {products.length > 0 ? (
             products.map((product, i) => (
@@ -61,4 +72,4 @@ const Products = props => {
   );
 };
 
-export default Products;
+export default React.memo(Products);
