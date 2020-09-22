@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Navbar from '../navbar/navbar';
 import Footer from '../footer/footer';
 import './orders.css';
@@ -14,10 +15,12 @@ const Orders = () => {
 
   const getProducts = productIds => {
     setProducts([]);
-    productIds.map(id => {
+    productIds.forEach(id => {
       fetch(`${apiUrl}/products/${id}`, getRequest)
         .then(response => response.json())
-        .then(response => setProducts());
+        .then(response => {
+          setProducts(prevState => [...prevState, response]);
+        });
     });
   };
 
@@ -50,17 +53,22 @@ const Orders = () => {
                     <tr key={i}>
                       <th scope="row">{i}</th>
                       <td className="dropdown">
-                        {/*<button
+                        <button
                           className="btn dropdown-toggle"
                           type="button"
                           id="dropdownMenuButton"
                           data-toggle="dropdown"
                           onClick={() => getProducts(order.productIds)}
+                        >
                           {order.productIds.map(id => `${id},  `)}
                         </button>
-                        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton"></div>
-                        >*/}
-                        {order.productIds.map(id => `${id},  `)}
+                        <div className="dropdown-menu order__productdropdown" aria-labelledby="dropdownMenuButton">
+                          {products.map((product, i) => (
+                            <div key={i}>
+                              <Link to={`/product/${product.id}`}>{product.productdescription}</Link>
+                            </div>
+                          ))}
+                        </div>
                       </td>
                       <td>{`${order.totalPrice} €`}</td>
                       <td>{order.date}</td>
@@ -81,4 +89,4 @@ const Orders = () => {
   );
 };
 
-export default Orders;
+export default React.memo(Orders);

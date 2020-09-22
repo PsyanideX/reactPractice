@@ -57,7 +57,7 @@ const Product = props => {
         }
       })
       .then(response => setProduct(response));
-  }, []);
+  }, [props.match.params.productId]);
 
   console.log('RENDER PRODUCT DETAIL');
   return (

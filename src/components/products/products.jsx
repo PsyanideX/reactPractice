@@ -25,7 +25,7 @@ const Products = props => {
         .then(response => response.json())
         .then(response => setProducts(response));
     }
-  }, []);
+  }, [props.match.params.department]);
 
   console.log('RENDER PRODUCT LIST');
   return (
