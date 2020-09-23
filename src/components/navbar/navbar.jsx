@@ -16,7 +16,6 @@ const Navbar = ({ onlyLogo = false }) => {
     dispatch(loggedOut());
   };
 
-  console.log('RENDER NAVBAR');
   return (
     <nav className="navbar row">
       <div className="col-xl-10 col-bg-9 col-md-8 col-sm-7 col-6">
