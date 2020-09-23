@@ -1,6 +1,6 @@
 {
   "name": "taller",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "private": true,
   "dependencies": {
     "@popperjs/core": "^2.4.4",
@@ -55,7 +55,7 @@
     "@babel/plugin-transform-react-jsx": "^7.10.4",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.4",
-    "jest": "^26.4.2",
+    "jest": "^24.9.0",
     "parcel-bundler": "^1.12.4",
     "redux-devtools": "^3.7.0"
   }

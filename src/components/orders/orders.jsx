@@ -14,12 +14,20 @@ const Orders = () => {
   const [products, setProducts] = useState([]);
 
   const getProducts = productIds => {
-    setProducts([]);
+    //setProducts([]);
     productIds.forEach(id => {
       fetch(`${apiUrl}/products/${id}`, getRequest)
         .then(response => response.json())
         .then(response => {
-          setProducts(prevState => [...prevState, response]);
+          let isReponseOnProducts = false;
+          for (let productId in products) {
+            if (productId == response.id) {
+              isReponseOnProducts = true;
+            }
+          }
+          if (!isReponseOnProducts) {
+            setProducts(prevState => [...prevState, response]);
+          }
         });
     });
   };
@@ -63,11 +71,13 @@ const Orders = () => {
                           {order.productIds.map(id => `${id},  `)}
                         </button>
                         <div className="dropdown-menu order__productdropdown" aria-labelledby="dropdownMenuButton">
-                          {products.map((product, i) => (
-                            <div key={i}>
-                              <Link to={`/product/${product.id}`}>{product.productdescription}</Link>
-                            </div>
-                          ))}
+                          {products.map((product, i) =>
+                            order.productIds.includes(product.id) ? (
+                              <div key={i}>
+                                <Link to={`/product/${product.id}`}>{product.productdescription}</Link>
+                              </div>
+                            ) : null,
+                          )}
                         </div>
                       </td>
                       <td>{`${order.totalPrice} €`}</td>
