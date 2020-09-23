@@ -71,7 +71,6 @@ const Cart = () => {
     return today;
   };
 
-  console.log('RENDER CART');
   return (
     <div className="flex-wrapper">
       <Navbar />
