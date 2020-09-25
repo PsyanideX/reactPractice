@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+
 import { useSelector, useDispatch } from 'react-redux';
+import { selectLogin } from '../../core/store/reducers/loginSlice';
+import { removeItem, selectItems } from '../../core/store/reducers/cartSlice';
+
+import { apiUrl, postRequest } from '../../shared/constants/constants';
+
+import Notifications, { notify } from 'react-notify-toast';
+
+import UserNotLogged from '../../shared/components/userNotLogged/userNotLogged';
 import Navbar from '../navbar/navbar';
 import Footer from '../footer/footer';
 import './cart.css';
-import { apiUrl, postRequest } from '../../shared/constants/constants';
-import { removeItem, selectItems } from '../../core/store/reducers/cartSlice';
-import { selectLogin } from '../../core/store/reducers/loginSlice';
-import UserNotLogged from '../../shared/components/userNotLogged/userNotLogged';
 
 const Cart = () => {
   const history = useHistory();
@@ -40,8 +45,14 @@ const Cart = () => {
     return calculateTotalPrice;
   };
 
-  const removeItemfromCart = id => {
-    dispatch(removeItem(id));
+  const removeItemfromCart = item => {
+    dispatch(removeItem(item));
+  };
+
+  const emptyCart = () => {
+    cart.forEach(item => {
+      dispatch(removeItem(item));
+    });
   };
 
   const buyProducts = () => {
@@ -54,8 +65,8 @@ const Cart = () => {
     });
     fetch(`${apiUrl}/orders`, { ...postRequest, body: body }).then(response => {
       if (response.status === 201) {
-        history.push('/home');
-        alert('Compra realizada');
+        notify.show('Compra realizada!', 'success', 3000);
+        emptyCart();
       }
       return response.json();
     });
@@ -73,6 +84,7 @@ const Cart = () => {
 
   return (
     <div className="flex-wrapper">
+      <Notifications />
       <Navbar />
       {userLogged ? (
         <div className="container">

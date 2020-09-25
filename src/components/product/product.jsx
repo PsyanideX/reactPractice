@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../../core/store/reducers/cartSlice';
 import { apiUrl, getRequest } from '../../shared/constants/constants';
+import Notifications, { notify } from 'react-notify-toast';
 import Navbar from '../navbar/navbar';
 import Footer from '../footer/footer';
 import './product.css';
-import { useDispatch } from 'react-redux';
-import { addItem } from '../../core/store/reducers/cartSlice';
 
 const Product = props => {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ const Product = props => {
       quantity: quantity,
     };
     dispatch(addItem(item));
+    notify.show('Producto añadido al carrito', 'success', 1000);
   };
 
   const addOneUnity = () => {
@@ -59,9 +61,9 @@ const Product = props => {
       .then(response => setProduct(response));
   }, [props.match.params.productId]);
 
-  console.log('RENDER PRODUCT DETAIL');
   return (
     <div className="flex-wrapper">
+      <Notifications />
       <Navbar />
       <div className="container product__container">
         {product ? (
