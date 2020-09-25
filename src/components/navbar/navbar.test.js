@@ -6,8 +6,9 @@ import Adapter from 'enzyme-adapter-react-16';
 import { Router, Switch, useHistory } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import Navbar from './navbar';
-import createBrowserHistory from 'history/createBrowserHistory';
+import { createBrowserHistory } from 'history';
 import configureStore from 'redux-mock-store';
+import { cartItemsMock } from '../../testing/mocks/cartItems.mock';
 
 const newHistory = createBrowserHistory();
 const mockStore = configureStore([]);
@@ -28,22 +29,22 @@ describe('<Navbar />', () => {
   };
 
   it('loads', () => {
-    const component = setup({ cart: { items: [{ id: 1 }, { id: 2 }] }, login: { userLogged: 'admin' } }, false);
+    const component = setup({ cart: { items: cartItemsMock }, login: { userLogged: 'admin' } }, false);
     expect(component.find('[className="navbar row"]').length).toEqual(1);
   });
 
   it('cart item number showed corectly', () => {
-    const component = setup({ cart: { items: [{ id: 1 }, { id: 2 }] }, login: { userLogged: 'admin' } }, false);
-    expect(component.find('[className="navbar row"] p').text()).toEqual('2');
+    const component = setup({ cart: { items: cartItemsMock }, login: { userLogged: 'admin' } }, false);
+    expect(component.find('[className="navbar row"] p').text()).toEqual('3');
   });
 
   it('should only display logo', () => {
-    const component = setup({ cart: { items: [{ id: 1 }, { id: 2 }] }, login: { userLogged: 'admin' } }, true);
+    const component = setup({ cart: { items: cartItemsMock }, login: { userLogged: 'admin' } }, true);
     expect(component.find('[className="navbar__avatar btn"]').length).toEqual(0);
   });
 
   it('should display full navbar', () => {
-    const component = setup({ cart: { items: [{ id: 1 }, { id: 2 }] }, login: { userLogged: 'admin' } }, false);
+    const component = setup({ cart: { items: cartItemsMock }, login: { userLogged: 'admin' } }, false);
     expect(component.find('[className="navbar__avatar btn"]').length).toEqual(1);
   });
 

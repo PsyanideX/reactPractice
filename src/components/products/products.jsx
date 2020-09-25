@@ -21,7 +21,7 @@ const Products = props => {
         .then(response => response.json())
         .then(response => setProducts(response));
     } else {
-      department = department ? department.charAt(0).toUpperCase() + department.slice(1).toLowerCase() : null;
+      department = department.charAt(0).toUpperCase() + department.slice(1).toLowerCase();
       let url = department ? `${apiUrl}/products/?department=${department}` : `${apiUrl}/products`;
       fetch(url, getRequest)
         .then(response => response.json())
@@ -33,7 +33,6 @@ const Products = props => {
     setSearchQuery(search);
   };
 
-  console.log('RENDER PRODUCT LIST');
   return (
     <div className="flex-wrapper">
       <Navbar />

@@ -30,6 +30,7 @@ const Login = () => {
   };
 
   const submitLoginFormHandler = event => {
+    console.log('############################################################################');
     event.preventDefault();
     const isValidUsername = usernameValidation('username', formControls.username.value);
     const isValidPasswword = passwordValidation('password', formControls.password.value);

@@ -14,7 +14,6 @@ const Orders = () => {
   const [products, setProducts] = useState([]);
 
   const getProducts = productIds => {
-    //setProducts([]);
     productIds.forEach(id => {
       fetch(`${apiUrl}/products/${id}`, getRequest)
         .then(response => response.json())
@@ -38,7 +37,6 @@ const Orders = () => {
       .then(response => setOrders(response));
   }, []);
 
-  console.log('RENDER ORDERS');
   return (
     <div className="flex-wrapper">
       <Navbar />

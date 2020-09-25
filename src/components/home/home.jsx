@@ -20,7 +20,6 @@ const Home = () => {
       .then(response => setProducts(response));
   }, []);
 
-  console.log('RENDER HOME');
   return (
     <div className="flex-wrapper">
       <Navbar />
