@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import Notifications, { notify } from 'react-notify-toast';
 import { usernameValidation, passwordValidation, emailValidation } from '../../shared/validators/validators';
 import { apiUrl, postRequest } from '../../shared/constants/constants';
 
@@ -34,14 +35,12 @@ const Register = () => {
       });
       fetch(`${apiUrl}/users`, { ...postRequest, body: body }).then(response => {
         if (response.status === 201) {
-          console.log('User added');
+          notify.show('Usuario añadido!', 'success', 3000);
         }
         return response.json();
       });
     } else {
-      console.log(isValidEmail);
-      console.log(isValidUsername);
-      console.log(isValidPasswword);
+      notify.show('El usuario, el email o la contraseña no cumplen los requisitos', 'error', 3000);
     }
   };
 
@@ -60,6 +59,7 @@ const Register = () => {
 
   return (
     <div className="flex-wrapper">
+      <Notifications />
       <Navbar onlyLogo={true} />
       <div className="container register">
         <h2>Register</h2>
