@@ -62,7 +62,7 @@ const Register = () => {
       <Notifications />
       <Navbar onlyLogo={true} />
       <div className="container register">
-        <h2>Register</h2>
+        <h2>Registro</h2>
         <form onSubmit={submitRegisterFormHandler} autoComplete="off">
           <div className="form-group">
             <label htmlFor="email">Email</label>
@@ -101,10 +101,10 @@ const Register = () => {
             />
           </div>
           <button type="submit" className="btn btn-primary">
-            Register
+            Registrarse
           </button>
         </form>
-        <p>Already have an account?</p>
+        <p>¿Ya tienes una cuenta?</p>
         <Link to="/login">
           <button type="button" className="btn btn-secondary">
             Login

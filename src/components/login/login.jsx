@@ -30,7 +30,6 @@ const Login = () => {
   };
 
   const submitLoginFormHandler = event => {
-    console.log('############################################################################');
     event.preventDefault();
     const isValidUsername = usernameValidation('username', formControls.username.value);
     const isValidPasswword = passwordValidation('password', formControls.password.value);
@@ -98,10 +97,10 @@ const Login = () => {
           <button type="submit" className="btn">
             Login
           </button>
-          <p>Already have an account?</p>
+          <p>¿Necesitas una cuenta?</p>
           <Link to="/register">
             <button type="button" className="btn">
-              Register
+              Registrarse
             </button>
           </Link>
         </form>
