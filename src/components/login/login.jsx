@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 
+import Notifications, { notify } from 'react-notify-toast';
 import { usernameValidation, passwordValidation } from '../../shared/validators/validators';
 import { apiUrl, getRequest } from '../../shared/constants/constants';
 
@@ -38,11 +39,14 @@ const Login = () => {
       fetch(`${apiUrl}/users/?username=${formControls.username.value}`, { ...getRequest })
         .then(response => response.json())
         .then(response => {
-          if (response[0].username === username && response[0].password === password) {
+          if (response[0] && response[0].username === username && response[0].password === password) {
             login(username);
+          } else {
+            notify.show('Usuario o contraseña incorrectos', 'error', 3000);
           }
         });
     } else {
+      notify.show('El usuario o la contraseña no cumplen los requisitos', 'error', 3000);
     }
   };
 
@@ -61,6 +65,7 @@ const Login = () => {
 
   return (
     <div className="flex-wrapper">
+      <Notifications />
       <Navbar onlyLogo={true} />
       <div className="container login">
         <h2>Login</h2>
